@@ -1,0 +1,26 @@
+sort1 uses: Bubble Sort
+
+How do you know?:
+    Rand 10000 : 360
+    Reve 10000 : 251
+    sort 10000 : 082
+Best case scenario, sorted 10000 is much faster than random or reversed
+implying
+random and reversed = O(n^2)
+while Omega = O(n)
+
+sort2 uses: Merge Sort
+
+How do you know?:
+    Rand 10000 : 080
+    Reve 10000 : 067
+    sort 10000 : 093
+all are very fast, implying that all are O and Omega are both nlogn
+
+sort3 uses: Selection Sort
+    Rand 10000 : 125
+    Reve 10000 : 163
+    sort 10000 : 179
+
+How do you know?:
+all equally as slow, including best case implying that all are O(n^2)
