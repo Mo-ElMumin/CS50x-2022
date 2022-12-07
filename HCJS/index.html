@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <!-- JAVASCRIPT -->
+        <script>
+            // TODO: Add code to check answers to questions
+            document.addEventListener('DOMContentLoaded', function()
+                {
+                    // for correct multiple choice question:
+                    let correct_button = document.querySelector(".correct");
+                    correct_button.addEventListener('click', function() {
+                            correct_button.style.backgroundColor = 'green';
+                            document.querySelector('#feedbackMC').innerHTML = 'Correct!';
+                        });
+
+                    // for incorrect multiple choice question:
+                    let incorrect_buttons = document.querySelectorAll('.incorrect');
+                    for (let i = 0; i < incorrect_buttons.length; i++) {
+                        incorrect_buttons[i].addEventListener('click', function(){
+                                incorrect_buttons[i].style.backgroundColor = 'red';
+                                document.querySelector('#feedbackMC').innerHTML = 'incorrect!';
+                            });
+                        }
+
+                    // for open response question
+                    let check_button = document.querySelector("#check");
+                    check_button.addEventListener('click', function(){
+                        let answer = document.querySelector("input");
+                        if (answer.value === "h20"){
+                            answer.style.backgroundColor = "green";
+                            document.querySelector('#feedbackOQ').innerHTML = 'H20 is correct!'
+                        } else {
+                            answer.style.backgroundColor = "red";
+                            document.querySelector('#feedbackOQ').innerHTML = 'incorrect! Try again'
+                        }
+
+                    });
+                });
+
+        </script>
+    </head>
+    <body>
+
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <!-- QUESTION 1 -->
+            <button type="button" onclick="alert('working')"> test </button>
+            <div class="section">
+
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3> Why is water wet? </h3>
+
+                <button type="button" class = "incorrect"> Just Because </button>
+                <button type="button" class = "correct"> Water Tension </button>
+                <button type="button" class = "incorrect"> Physics demands it </button>
+                <button type="button" class = "incorrect"> it's not actually wet </button>
+                <button type="button" class = "incorrect"> Pancakes </button>
+
+                <p id = "feedbackMC"> </p>
+            </div>
+
+            <!-- QUESTION 2 -->
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3> Whats the scientific notation for water? </h3>
+                <!-- TODO: Add free response question here -->
+                <input autocomplete="off" placeholder="Answer" type="text">
+                <button id="check"> Check Answer</button>
+
+                <p id = "feedbackOQ"> </p>
+
+            </div>
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Account
+{% endblock %}
+
+{% block main %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th class="text-center">Username</th>
+            <th class="text-center">Cash</th>
+        </tr>
+    </thead>
+   <tbody>
+    <tr>
+        <td class="border-0 fw-bold text-center">{{account["username"]}}</td>
+        <td class="border-0 text-center" colspan="3">{{account["cash"] | usd}}</td>
+    </tr>
+    </tbody>
+</table>
+<br>
+
+<b>Change Password</b>
+<br>
+{{message}}
+<form action="/account" method="post">
+    <div class="mb-3">
+        Enter old password
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="password" name="old" placeholder="Enter Old password" type="password">
+    </div>
+    <div class="mb-3">
+        Enter new password
+        <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Enter New Password" type="password">
+    </div>
+    <div class="mb-3">
+        Confirm new password
+        <input class="form-control mx-auto w-auto" id="password" name="confirmation" placeholder="Enter New Password Again" type="password">
+    </div>
+    <button class="btn btn-primary" type="submit"> Change Password </button>
+</form>
+{% endblock %}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>Birthdays</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Birthdays</h1>
+        </div>
+        <div class="container">
+            <div class="section">
+
+                <h2>Add a Birthday</h2>
+                <form action="/" method="post">
+                    <input autocomplete="off" autofocus name="name" placeholder="Name" type="text" required>
+                    <input autocomplete="off" name="day" placeholder="day" type="text" required maxlength="2" size="10">
+                    <input autocomplete="off" name="month" placeholder="month" type="text" required maxlength="2" size="10">
+                    <input autocomplete="off" name="year" placeholder="year" type="text" required maxlength="4" size="20">
+                    <input type="submit" value="Add Birthday">
+                </form>
+                <br>
+                <!-- better method of input handling which i'm not bothered to implement after writing all that error handling -->
+                <!-- <form action="/" method="post">
+                    <input autocomplete="off" autofocus name="name" placeholder="Name" type="text" required>
+                    <input type="date" name = "date" required>
+                    <input type="submit" value="Add Birthday">
+                </form> -->
+                <h2>{{error}}</h2>
+            </div>
+
+            <div class="section">
+
+                <h2>All Birthdays</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Birthday</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for person in birthdays %}
+                           <tr>
+                                <td>{{person["name"]}} </td>
+                                <td>{{person["day"]}} / {{person["month"]}} / {{person["year"]}}</td>
+                           </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
